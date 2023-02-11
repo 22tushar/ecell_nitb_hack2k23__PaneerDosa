@@ -1,0 +1,12 @@
+.RequestsFront{
+    display: flex;
+    width: 100%;
+}
+
+.headerforaccepted{
+    width: 50%;
+}
+
+.headerforpending{
+    width: 50%;
+}
