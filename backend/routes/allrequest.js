@@ -25,7 +25,7 @@ router.get("/allCampany", async (req, res) => {
       res.status(500).send(error);
     }
   });
-  router.get("/requestAccept", async (req, res) => {
+  router.get("/Accepted", async (req, res) => {
   
     try {
           const allrequestAccepted = await User.find({
@@ -85,14 +85,31 @@ router.get("/getskills", async (req, res) => {
         res.status(500).send(error);
       }
   });
-
+ 
   router.post("/ReqAccept", async (req, res) => {
     const {email} =req.body
   
     try {
         await User.findOneAndUpdate( {email:email},
             {
-              reqAccept:true
+              reqAccept:true,
+              reqSent:false
+            },
+            { new: true });
+        res.status(200).send("Product has been deleted...");
+      } catch (error) {
+        res.status(500).send(error);
+      }
+  });
+
+  router.post("/reject", async (req, res) => {
+    const {email} =req.body
+  
+    try {
+        await User.findOneAndUpdate( {email:email},
+            {
+              reqAccept:false,
+              reqSent:false
             },
             { new: true });
         res.status(200).send("Product has been deleted...");
