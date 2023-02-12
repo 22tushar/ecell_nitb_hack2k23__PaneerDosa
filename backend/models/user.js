@@ -7,6 +7,10 @@ const userSchema = new mongoose.Schema(
     desc:{type:String},
     email:{type:String},
     password:{type:String},
+    reqSent: { type: Boolean, default: false },
+    reqAccept: { type: Boolean, default: false },
+    C: { type: Boolean, default: false },
+    T: { type: Boolean, default: false },
     isAdmin: { type: Boolean, default: false },
   },
   { timestamps: true }
